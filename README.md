@@ -1,1 +1,1 @@
-# MyMenu project for Java Bases course on OpenClassrooms - Step 5
+# MyMenu project for Java Bases course on OpenClassrooms - Step 6
