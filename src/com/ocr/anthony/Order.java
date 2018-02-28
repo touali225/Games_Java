@@ -67,6 +67,18 @@ public class Order {
         }
     }
     /**
+     * Run asking process for several menus.
+     */
+    public void runMenus() {
+        System.out.println("Combien souhaitez vous commander de menu ?");
+        int menuQuantity = sc.nextInt();
+        int counter = 0;
+        while (counter < menuQuantity) {
+            runMenu();
+            counter = counter + 1;
+        }
+    }
+    /**
      * Display a selected side depending on all sides enable or not.
      * All sides = vegetables, frites and rice
      * No all sides = rice or not
