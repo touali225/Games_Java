@@ -3,6 +3,8 @@ package com.ocr.anthony;
 import java.util.Scanner;
 
 public class Order {
+    Scanner sc = new Scanner(System.in);
+
     /**
      * Display all available menus in the restaurant.
      */
@@ -38,7 +40,6 @@ public class Order {
      */
     public void runMenu() {
         this.displayAvailableMenu();
-        Scanner sc = new Scanner(System.in);
         int nbMenu = sc.nextInt();
         this.displaySelectedMenu(nbMenu);
         switch (nbMenu) {
