@@ -31,7 +31,7 @@ public class Order {
                 System.out.println("Vous avez choisi comme menu : végétarien");
                 break;
             default:
-                System.out.println("Vous n'avez pas choisi un des choix proposés comme menu");
+                System.out.println("Vous n'avez pas choisi de menu parmi les choix proposés");
                 break;
         }
     }
@@ -85,7 +85,7 @@ public class Order {
      * Run asking process for several menus.
      */
     public void runMenus() {
-        System.out.println("Combien souhaitez vous commander de menu ?");
+        System.out.println("Combien de menus souhaitez-vous commander ?");
         int menuQuantity = sc.nextInt();
         for (int i = 0; i < menuQuantity; i++) {
             runMenu();
@@ -111,7 +111,7 @@ public class Order {
                     System.out.println("Vous avez choisi comme accompagnement : riz");
                     break;
                 default:
-                    System.out.println("Vous n'avez pas choisi un des choix proposés comme accompagnement");
+                    System.out.println("Vous n'avez pas choisi d'accompagnement parmi les choix proposés");
                     break;
             }
         } else {
@@ -123,7 +123,7 @@ public class Order {
                     System.out.println("Vous avez choisi comme accompagnement : pas de riz");
                     break;
                 default:
-                    System.out.println("Vous n'avez pas choisi un des choix proposés comme accompagnement");
+                    System.out.println("Vous n'avez pas choisi d'accompagnement parmi les choix proposés");
                     break;
             }
         }
@@ -144,7 +144,7 @@ public class Order {
                 System.out.println("Vous avez choisi comme boisson : soda");
                 break;
             default:
-                System.out.println("Vous n'avez pas choisi un des choix proposés comme boisson");
+                System.out.println("Vous n'avez pas choisi de boisson parmi les choix proposés");
                 break;
         }
     }
