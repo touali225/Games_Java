@@ -47,3 +47,40 @@ public class Jeux {
         } /* fin de la boucle while */
         System.out.println("Bravo, vous avez trouvé le nombre recherché !");
     } /* fin de la fonction main() */ } /* fin de la classe */
+
+
+
+            /*
+
+            // Afficher le résultat du jeu
+            if (combinaisonSecrete.equals(combinaisonJoueur)) {
+                //System.out.println("contenu1:" +combinaisonSecrete );
+                //System.out.println("contenu2:" +combinaisonJoueur );
+                System.out.println("Bravo, vous avez gagné !!!");
+            } else {
+
+                //System.out.println("contenu1:" +combinaisonSecrete);
+                //System.out.println("contenu2:" +combinaisonJoueur );
+                System.out.println("Désolé, vous avez perdu !!!");
+            }
+            break;*/
+
+
+
+            /*for(int j=0;j<combinaisonSecrete.size();j++){
+                if(combinaisonSecrete[i] != null)L3 +=combinaisonSecrete[i];
+            }
+
+            for(int j=0;i<combinaisonJoueur.size();j++){
+                L3 +=combinaisonJoueur[j];
+            }*/
+            /*if(combinaisonSecrete.equals(combinaisonJoueur)){
+                System.out.println("contenu1:" +combinaisonSecrete );
+                System.out.println("contenu2:" +combinaisonJoueur );
+                System.out.println("Bravo, vous avez gagné !!!");
+            }else {
+
+                System.out.println("contenu1:" +combinaisonSecrete);
+                System.out.println("contenu2:" +combinaisonJoueur );
+                System.out.println("Désolé, vous avez perdu !!!");
+            }*/

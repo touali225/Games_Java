@@ -94,7 +94,6 @@ public class Mode {
         }
 
         for (int i = 0; i <= 4; i++) {
-
             System.out.println("Merci de faire une proposition de 4 chiffres");
             List<Integer> combinaisonJoueur = new ArrayList<>();
             String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
@@ -105,47 +104,35 @@ public class Mode {
             //Comparer, stocker et afficher la réponse.
             ArrayList<String> Reponse = new ArrayList<>();
             for (int j = 0; j < combinaisonSecrete.size(); j++) {
+
                 if (combinaisonSecrete.get(j) > combinaisonJoueur.get(j))
                     Reponse.add("+");
                 else if (combinaisonSecrete.get(j) == combinaisonJoueur.get(j))
                     Reponse.add("=");
                 else
                     Reponse.add("-");
-            } System.out.println("Réponse = " + Reponse );
 
-            // Afficher le résultat du jeu
-            if(combinaisonSecrete.equals(combinaisonJoueur)){
-                //System.out.println("contenu1:" +combinaisonSecrete );
-                //System.out.println("contenu2:" +combinaisonJoueur );
+
+            } System.out.println("Réponse = " + Reponse);
+
+
+            if (combinaisonSecrete == combinaisonJoueur) {
                 System.out.println("Bravo, vous avez gagné !!!");
-            }else {
-
-                //System.out.println("contenu1:" +combinaisonSecrete);
-                //System.out.println("contenu2:" +combinaisonJoueur );
-                System.out.println("Désolé, vous avez perdu !!!");
+                break;
             }
 
-
-
-            /*for(int j=0;j<combinaisonSecrete.size();j++){
-                if(combinaisonSecrete[i] != null)L3 +=combinaisonSecrete[i];
+                if ( i>= 5) {
+                    break;
+                }
             }
 
-            for(int j=0;i<combinaisonJoueur.size();j++){
-                L3 +=combinaisonJoueur[j];
-            }*/
-            /*if(combinaisonSecrete.equals(combinaisonJoueur)){
-                System.out.println("contenu1:" +combinaisonSecrete );
-                System.out.println("contenu2:" +combinaisonJoueur );
-                System.out.println("Bravo, vous avez gagné !!!");
-            }else {
+        System.out.println("Désolé, vous avez perdu !!!");
+        System.out.println("Vous auriez dû jouer cette combinaison:" +combinaisonSecrete);
 
-                System.out.println("contenu1:" +combinaisonSecrete);
-                System.out.println("contenu2:" +combinaisonJoueur );
-                System.out.println("Désolé, vous avez perdu !!!");
-            }*/
+
+
 
         }
-    }
 
-}
+
+    }
