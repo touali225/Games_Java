@@ -22,13 +22,12 @@ public class Mode {
         int nbJeu = jeuDispo();
         switch (nbJeu) {
             case 1:
-                askChallenger(true);
+                askChallenger();
                 break;
             case 2:
-                askChallenger(true);
+                askChallenger();
                 break;
             case 3:
-                askChallenger(false);
 
                 break;
         }
@@ -68,11 +67,37 @@ public class Mode {
         return nbResponse;
     }
 
+    /**
+     * Run asking process for several menus.
+     */
+    public void finPartie() {
+        System.out.println("");
+        System.out.println("Que souhaitez - vous ?");
+        System.out.println("1 - Rejouer une nouvelle partie ?");
+        System.out.println("2 - Lancer un nouveau mode ?");
+        System.out.println("3 - Sortir?");
+
+        int menuQuantity = -1;
+        boolean responseIsGood;
+        do {
+            try {
+                menuQuantity = sc.nextInt();
+                responseIsGood = true;
+            } catch (InputMismatchException e) {
+                sc.next();
+                System.out.println("Merci de faire un choix svp !!!");
+                responseIsGood = false;
+            }
+        } while (!responseIsGood);
+            finPartie();
+        }
+
+
 
     /**
      * MODE CHALLENGER
      */
-    public void askChallenger(boolean allSidesEnable) {
+    public void askChallenger() {
 
         Scanner sc = new Scanner(System.in);
 
@@ -95,10 +120,18 @@ public class Mode {
 
         for (int i = 0; i <= 4; i++) {
             System.out.println("Merci de faire une proposition de 4 chiffres");
+
+            //System.out.println("DSL");
             List<Integer> combinaisonJoueur = new ArrayList<>();
             String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
             for (String s : listTmp) {
                 combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
+            }
+
+            if ( i ==4) {
+                System.out.println("Désolé, vous avez perdu !!!");
+                System.out.println("Vous auriez dû jouer" + combinaisonSecrete);
+                break;
             }
 
             //Comparer, stocker et afficher la réponse.
@@ -113,26 +146,26 @@ public class Mode {
                     Reponse.add("-");
 
 
-            } System.out.println("Réponse = " + Reponse);
+            }
+            System.out.println("Réponse = " + Reponse);
+            System.out.println("Vous auriez dû jouer cette combinaison:" + combinaisonSecrete);
 
 
-            if (combinaisonSecrete == combinaisonJoueur) {
+            if (combinaisonSecrete.equals(combinaisonJoueur)) {
                 System.out.println("Bravo, vous avez gagné !!!");
                 break;
             }
-
-                if ( i>= 5) {
-                    break;
-                }
-            }
-
-        System.out.println("Désolé, vous avez perdu !!!");
-        System.out.println("Vous auriez dû jouer cette combinaison:" +combinaisonSecrete);
-
-
-
+            else {
+                System.out.println("");
+            };
 
         }
 
-
     }
+
+}
+
+
+
+
+
