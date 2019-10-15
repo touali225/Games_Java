@@ -26,6 +26,7 @@ public class Jeux {
         /* début de la boucle while */
         while(int_nombre_propose!=nombre_secret) {
             System.out.print("Entrez un nombre : ");
+            nombre_secret=(int) (Math.random() * 1000);
 
             /* saisie une chaine de caractère au clavier */
             try { chaine_nombre_propose=clavier.readLine(); }

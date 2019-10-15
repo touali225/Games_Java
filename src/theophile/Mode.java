@@ -20,12 +20,16 @@ public class Mode {
      */
     public void jeuAlaDemande() {
         int nbJeu = jeuDispo();
-        switch (nbJeu) {
+        lancerJeu(nbJeu);
+    }
+
+    public void lancerJeu (int mode) {
+        switch (mode) {
             case 1:
                 askChallenger();
                 break;
             case 2:
-                askChallenger();
+                ;
                 break;
             case 3:
 
@@ -70,18 +74,18 @@ public class Mode {
     /**
      * Run asking process for several menus.
      */
-    public void finPartie() {
+    public int finPartie() {
         System.out.println("");
         System.out.println("Que souhaitez - vous ?");
         System.out.println("1 - Rejouer une nouvelle partie ?");
         System.out.println("2 - Lancer un nouveau mode ?");
         System.out.println("3 - Sortir?");
 
-        int menuQuantity = -1;
+        int choixJoueur = -1;
         boolean responseIsGood;
         do {
             try {
-                menuQuantity = sc.nextInt();
+                choixJoueur = sc.nextInt();
                 responseIsGood = true;
             } catch (InputMismatchException e) {
                 sc.next();
@@ -89,8 +93,8 @@ public class Mode {
                 responseIsGood = false;
             }
         } while (!responseIsGood);
-            finPartie();
-        }
+        return choixJoueur;
+    }
 
 
 
