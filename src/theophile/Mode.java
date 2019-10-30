@@ -76,6 +76,7 @@ public class Mode {
      */
     public int finPartie() {
         System.out.println("");
+        System.out.println(".............................................................................................................................");
         System.out.println("Que souhaitez - vous ?");
         System.out.println("1 - Rejouer une nouvelle partie ?");
         System.out.println("2 - Lancer un nouveau mode ?");
@@ -191,6 +192,7 @@ public class Mode {
      */
     public void askDefenseur() {
 
+
         Scanner sc = new Scanner(System.in);
 
         System.out.println("");
@@ -210,272 +212,74 @@ public class Mode {
         }
 
         Random random = new Random();
+        ArrayList<String> reponse = new ArrayList<>();
         List<Integer> combinaisonSecrete = new ArrayList<>();//Integer la version objet  de int creer une liste
         for (int j = 0; j <= 3; j++) {
-        int nbr = random.nextInt(10);
-        combinaisonSecrete.add(nbr);// ajout de la liste crée
+            int nbr = random.nextInt(10);
+            combinaisonSecrete.add(nbr);// ajout de la liste crée
         }
 
-        for (int i = 1; i <= 4; i++) {
-
-            //Comparer, stocker et afficher la réponse.
-            ArrayList<String> Reponse = new ArrayList<>();
-            for (int j = 0; j < combinaisonJoueur.size(); j++) {
-
-                if (combinaisonJoueur.get(j) > combinaisonSecrete.get(j))
-                    Reponse.add("+");
-                else if (combinaisonJoueur.get(j) == combinaisonSecrete.get(j))
-                    Reponse.add("=");
-                else
-                    Reponse.add("-");
-
-
-            }
-            System.out.println("");
-            System.out.println("Combinaison Ordinateur" + combinaisonSecrete);
-            System.out.println("Réponse = " + Reponse);
+        for (int k = 0; k <= 4; k++) {
 
 
             /**
-             *  Nouvelle proposition de l'ordinateur basée sur la reponse du joueur
-             *
+             * VICTOIRE DU JOUEUR
              */
 
-            List<Integer> proprosition2 = new ArrayList<>();//Integer la version objet  de int creer une liste
-
-            for (i = 1; i <= 1; i++) {
-                ArrayList<String> affichage2 = new ArrayList<>();
-                int a = combinaisonSecrete.get(0);
-
-                if (combinaisonSecrete.get(0) > combinaisonJoueur.get(0)) {
-                    a--;
-                    proprosition2.add(a);
-                    affichage2.add("-");
-                } else if (combinaisonSecrete.get(0) == combinaisonJoueur.get(0)) {
-                    proprosition2.add(a);
-                    affichage2.add("=");
-                } else {
-                    a++;
-                    proprosition2.add(a);
-                    affichage2.add("+");
-                }
-
-                int b = combinaisonSecrete.get(1);
-
-                if (combinaisonSecrete.get(1) > combinaisonJoueur.get(1)) {
-                    b--;
-                    proprosition2.add(b);
-                    affichage2.add("-");
-                } else if (combinaisonSecrete.get(1)== combinaisonJoueur.get(1)) {
-                    proprosition2.add(b);
-                    affichage2.add("=");
-                } else {
-                    b++;
-                    proprosition2.add(b);
-                    affichage2.add("+");
-                }
-
-                int c = combinaisonSecrete.get(2);
-
-                if (combinaisonSecrete.get(2) > combinaisonJoueur.get(2)) {
-                    c--;
-                    proprosition2.add(c);
-                    affichage2.add("-");
-                } else if (combinaisonSecrete.get(2) == combinaisonJoueur.get(2)) {
-                    proprosition2.add(c);
-                    affichage2.add("=");
-                } else {
-                    c++;
-                    proprosition2.add(c);
-                    affichage2.add("+");
-                }
-
-                int d = combinaisonSecrete.get(3);
-
-                if (combinaisonSecrete.get(3) > combinaisonJoueur.get(3)) {
-                    d--;
-                    proprosition2.add(d);
-                    affichage2.add("-");
-                } else if (combinaisonSecrete.get(3) == combinaisonJoueur.get(3)) {
-                    proprosition2.add(d);
-                    affichage2.add("=");
-                } else {
-                    d++;
-                    proprosition2.add(d);
-                    affichage2.add("+");
-                }
-                System.out.println("Deuxième proposition" + proprosition2);
-                System.out.println("Réponse = " + affichage2);
-
+            if (k == 4) {
+                System.out.println("");
+                System.out.println("Bravo, vous avez gagné !!!");
+                System.out.println("L'ordinateur aurait dû jouer" + combinaisonJoueur);
+                break;
             }
 
-            List<Integer> proprosition3 = new ArrayList<>();//Integer la version objet  de int creer une liste
-            for (i = 2; i <= 2; i++) {
-                ArrayList<String> affichage3 = new ArrayList<>();
+            for (int i = 0; i < combinaisonJoueur.size(); i++) {
 
-                int a = proprosition2.get(0);
-
-                if (proprosition2.get(0) > combinaisonJoueur.get(0)) {
-                    a--;
-                    proprosition3.add(a);
-                    affichage3.add("-");
-                } else if (proprosition2.get(0) == combinaisonJoueur.get(0)) {
-                    proprosition3.add(a);
-                    affichage3.add("=");
-                } else {
-                    a++;
-                    proprosition3.add(a);
-                    affichage3.add("+");
-                }
-
-                int b = proprosition2.get(1);
-
-                if (proprosition2.get(1) > combinaisonJoueur.get(1)) {
-                    b--;
-                    proprosition3.add(b);
-                    affichage3.add("-");
-                } else if (proprosition2.get(1) == combinaisonJoueur.get(1)) {
-                    proprosition3.add(b);
-                    affichage3.add("=");
-                } else {
-                    b++;
-                    proprosition3.add(b);
-                    affichage3.add("+");
-                }
-
-                int c = proprosition2.get(2);
-
-                if (proprosition2.get(2) > combinaisonJoueur.get(2)) {
-                    c--;
-                    proprosition3.add(c);
-                    affichage3.add("-");
-                } else if (proprosition2.get(2) == combinaisonJoueur.get(2)) {
-                    proprosition3.add(c);
-                    affichage3.add("=");
-                } else {
-                    c++;
-                    proprosition3.add(c);
-                    affichage3.add("+");
-                }
-
-                int d = proprosition2.get(3);
-
-                if (proprosition2.get(3) > combinaisonJoueur.get(3)) {
-                    d--;
-                    proprosition3.add(d);
-                    affichage3.add("-");
-                } else if (proprosition2.get(3) == combinaisonJoueur.get(3)) {
-                    proprosition3.add(d);
-                    affichage3.add("=");
-                } else {
-                    d++;
-                    proprosition3.add(d);
-                    affichage3.add("+");
-                }
-                System.out.println("Troisième proposition" + proprosition3);
-                System.out.println("Réponse = " + affichage3);
+                if (combinaisonJoueur.get(i) > combinaisonSecrete.get(i))
+                    reponse.add("+");
+                else if (combinaisonJoueur.get(i) == combinaisonSecrete.get(i))
+                    reponse.add("=");
+                else
+                    reponse.add("-");
 
 
             }
+            System.out.println("Combinaison Ordinateur" + combinaisonSecrete);
+            System.out.println("Réponse = " + reponse);
+            reponse.clear();
 
-            List<Integer> proprosition4 = new ArrayList<>();//Integer la version objet  de int creer une liste
-            for (i= 3; i <= 3; i++) {
-                ArrayList<String> affichage4 = new ArrayList<>();
-
-                int a = proprosition3.get(0);
-
-                if (proprosition3.get(0) > combinaisonJoueur.get(0)) {
-                    a--;
-                    proprosition4.add(a);
-                    affichage4.add("-");
-                } else if (proprosition3.get(0) == combinaisonJoueur.get(0)) {
-                    proprosition4.add(a);
-                    affichage4.add("=");
-                } else {
-                    a++;
-                    proprosition4.add(a);
-                    affichage4.add("+");
-                }
-
-                int b = proprosition3.get(1);
-
-                if (proprosition3.get(1) > combinaisonJoueur.get(1)) {
-                    b--;
-                    proprosition4.add(b);
-                    affichage4.add("-");
-                } else if (proprosition3.get(1) == combinaisonJoueur.get(1)) {
-                    proprosition4.add(b);
-                    affichage4.add("=");
-                } else {
-                    b++;
-                    proprosition4.add(b);
-                    affichage4.add("+");
-                }
-
-                int c = proprosition3.get(2);
-
-                if (proprosition3.get(2) > combinaisonJoueur.get(2)) {
-                    c--;
-                    proprosition4.add(c);
-                    affichage4.add("-");
-                } else if (proprosition3.get(2) == combinaisonJoueur.get(2)) {
-                    proprosition4.add(c);
-                    affichage4.add("=");
-                } else {
-                    c++;
-                    proprosition4.add(c);
-                    affichage4.add("+");
-                }
-
-                int d = proprosition3.get(3);
-
-                if (proprosition3.get(3) > combinaisonJoueur.get(3)) {
-                    d--;
-                    proprosition4.add(d);
-                    affichage4.add("-");
-                } else if (proprosition3.get(3) == combinaisonJoueur.get(3)) {
-                    proprosition4.add(d);
-                    affichage4.add("=");
-                } else {
-                    d++;
-                    proprosition4.add(d);
-                    affichage4.add("+");
-                }
-                System.out.println("Quatrième proposition" + proprosition4);
-                System.out.println("Réponse = " + affichage4);
-
-            }
+            /**
+             * DEFAITE DU JOUEUR
+             */
 
             if (combinaisonSecrete.equals(combinaisonJoueur)) {
-                System.out.println("Bravo, vous avez gagné !!!");
-                break;
-            } else if (proprosition2.equals(combinaisonJoueur)) {
-                    System.out.println("Bravo, vous avez gagné !!!");
-                    break;
-                }
-            else if (proprosition3.equals(combinaisonJoueur)) {
-                System.out.println("Bravo, vous avez gagné !!!");
-                break;
-            }
-            else if (proprosition4.equals(combinaisonJoueur)) {
-                System.out.println("Bravo, vous avez gagné !!!");
-                break;
-            }
-            else {
-                    System.out.println("");
-            }
-
-
-            if ((proprosition4 !=(combinaisonJoueur))) {
                 System.out.println("");
                 System.out.println("Désolé, vous avez perdu !!!");
-                System.out.println("Vous auriez dû jouer" + combinaisonJoueur);
                 break;
             }
 
+            /**
+             *  MODIFICATION DE LA PROPOSITION BASEE SUR LES CONSIGNES DU JOUR
+             *
+             */
+            for (int i = 0; i <= 3; i++) {
+
+                int a = combinaisonSecrete.get(i);
+                if (combinaisonSecrete.get(i) > combinaisonJoueur.get(i)) {
+                    a--;
+                    combinaisonSecrete.set(i, a);
+                } else if (combinaisonSecrete.get(i) == combinaisonJoueur.get(i)) {
+                } else {
+                    a++;
+                    combinaisonSecrete.set(i, a);
+
+                }
 
             }
+
 
         }
 
+
     }
+}
