@@ -259,7 +259,7 @@ public class Mode {
             }
 
             /**
-             *  MODIFICATION DE LA PROPOSITION BASEE SUR LES CONSIGNES DU JOUR
+             *  MODIFICATION DE LA PROPOSITION BASEE SUR LES CONSIGNES DU JOUEUR
              *
              */
             for (int i = 0; i <= 3; i++) {
