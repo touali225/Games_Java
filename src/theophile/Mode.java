@@ -32,7 +32,7 @@ public class Mode {
                 askDefenseur();
                 break;
             case 3:
-
+                Duel askDuel = new Duel();
                 break;
         }
     }
