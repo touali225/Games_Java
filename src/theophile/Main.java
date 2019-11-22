@@ -1,11 +1,11 @@
 package theophile;
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
+
+
+
         int choixJoueur;
         int choixJoueur1;
         Mode mode = new Mode();
@@ -13,7 +13,9 @@ public class Main {
 
         do {
 
-            choixJoueur = mode.finPartie();
+
+           choixJoueur = mode.finPartie();
+
 
             if (choixJoueur ==1){
                 mode.askChallenger();
@@ -31,5 +33,7 @@ public class Main {
 
         } while (choixJoueur !=3);
 
+
     }
+
 }
