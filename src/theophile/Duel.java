@@ -10,7 +10,6 @@ public class Duel {
     private List<Integer> combinaisonJoueur;
     private List<Integer> combinaisonOrdinateur;
     private List<Integer> propositionJoueur;
-    private List<Integer> propositionOrdinateur;
     private ArrayList<String> reponseJoueur;
     private ArrayList<String> reponseOrdinateur;
     private boolean agagne;
@@ -26,33 +25,33 @@ public class Duel {
         System.out.println("Le choix de l'ordinateur : " + combinaisonOrdinateur);
     }
     public void choixJoueur() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Choisir une combinaison secrète de 4 chiffres");
-        String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
-        for (String s : listTmp) {
-            combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
-        }
 
-        System.out.println(" Le choix du joueur  : " + combinaisonJoueur);
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Choisir une combinaison secrète de 4 chiffres");
+            String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
+            for (String s : listTmp) {
+                combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
+            }
 
-
+            System.out.println(" Le choix du joueur  : " + combinaisonJoueur);
     }
 
 
     public void afficherChoix() {
 
-        for (int k = 0; k < combinaisonJoueur.size(); k++) {
+        for (int i = 0; i < combinaisonJoueur.size(); i++) {
 
-            if (combinaisonJoueur.get(k) > combinaisonOrdinateur.get(k)) {
+            if (combinaisonJoueur.get(i) > combinaisonOrdinateur.get(i)) {
                 reponseJoueur.add("+");
                 reponseOrdinateur.add("-");
-            } else if (combinaisonJoueur.get(k) == combinaisonOrdinateur.get(k)) {
+            } else if (combinaisonJoueur.get(i) == combinaisonOrdinateur.get(i)) {
                 reponseJoueur.add("=");
                 reponseOrdinateur.add("=");
             } else {
                 reponseJoueur.add("-");
                 reponseOrdinateur.add("+");
             }
+
         }
         System.out.println("*****************************************************************************************************************************************************************");
         System.out.println("La combinaison secrète de l'ordinateur est : " + combinaisonOrdinateur);
@@ -61,25 +60,60 @@ public class Duel {
         System.out.println("Les indices donnés par le Joueur = " + reponseJoueur);
         reponseOrdinateur.clear();
         reponseJoueur.clear();
+        combinaisonJoueur.clear();
         System.out.println("*****************************************************************************************************************************************************************");
 
     }
-//    public String afficherChoix(List combinaisonOrdinateur, List combinaisonJoueur){
-//        return "Les combinaisons secrètes sont : Ordinateur = " + this.combinaisonOrdinateur + "Joueur" + this.combinaisonJoueur;
-//        }
 
+    public void aVosJeux(){
 
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Faites une proposition de 4 chiffres");
+        String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
+        for (String s : listTmp) {
+            combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
+        }
 
-//        // Je veux creer une methode confrontation
-//        for (int i = 0; i <= 1; i++) {
-//            if (combinaisonOrdinateur.get(i) == combinaisonJoueur.get(i)) {
-//                System.out.println("");
-//                System.out.println("Oups !!! Vous avez la même combinaison");
-//
-//            }
-//        }
+        for (int i = 0; i <= 3; i++) {
 
+            int a = combinaisonOrdinateur.get(i);
+            if (combinaisonOrdinateur.get(i) > combinaisonJoueur.get(i)) {
+                a--;
+                combinaisonOrdinateur.set(i, a);
+            } else if (combinaisonOrdinateur.get(i) == combinaisonJoueur.get(i)) {
+            } else {
+                a++;
+                combinaisonOrdinateur.set(i, a);
 
+            }
+
+        }
+
+        for (int i = 0; i < combinaisonJoueur.size(); i++) {
+
+            if (combinaisonJoueur.get(i) > combinaisonOrdinateur.get(i)) {
+                reponseJoueur.add("+");
+                reponseOrdinateur.add("-");
+            } else if (combinaisonJoueur.get(i) == combinaisonOrdinateur.get(i)) {
+                reponseJoueur.add("=");
+                reponseOrdinateur.add("=");
+            } else {
+                reponseJoueur.add("-");
+                reponseOrdinateur.add("+");
+            }
+        }
+
+        System.out.println("*****************************************************************************************************************************************************************");
+        System.out.println("La combinaison secrète de l'ordinateur est : " + combinaisonOrdinateur);
+        System.out.println("La combinaison secrète du joueur est : " + combinaisonJoueur);
+        System.out.println("Les indices donnés par l'Ordinateur = " + reponseOrdinateur);
+        System.out.println("Les indices donnés par le Joueur = " + reponseJoueur);
+        reponseOrdinateur.clear();
+        reponseJoueur.clear();
+        combinaisonJoueur.clear();
+        System.out.println("*****************************************************************************************************************************************************************");
+
+    }
 
 
     // constructeurs
@@ -90,10 +124,11 @@ public class Duel {
         choixOrdinateur();
         combinaisonJoueur = new ArrayList<>(); // initialisation
         choixJoueur();
-        //afficherChoix(combinaisonOrdinateur, combinaisonJoueur);
         reponseOrdinateur = new ArrayList<>();
         reponseJoueur = new ArrayList<>();
         afficherChoix();
+        propositionJoueur = new ArrayList<>();
+        aVosJeux();
 
 
 

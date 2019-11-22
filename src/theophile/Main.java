@@ -6,6 +6,7 @@ public class Main {
 
 
 
+
         int choixJoueur;
         int choixJoueur1;
         Mode mode = new Mode();
