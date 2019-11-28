@@ -15,6 +15,27 @@ public class Mode {
         return jeuAlaDemande("Jeu", Jeux);
     }
 
+
+
+    public void executionJeux(){
+
+        int choixJoueurFinPartie = 0;
+        int choixJoueurMenu = 0;
+
+        do {
+
+            if(choixJoueurFinPartie != 1) {
+                choixJoueurMenu = jeuDispo();
+            }
+
+            lancerJeu(choixJoueurMenu); // a chaque fois que le jeu s'execute
+            choixJoueurFinPartie = finPartie();
+
+
+            System.out.println(" ");
+
+        } while (choixJoueurFinPartie !=3);
+    }
     /**
      * LANCER LE JEU.
      */
