@@ -4,19 +4,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-
-
-
         int choixJoueur;
-        int choixJoueur1;
         Mode mode = new Mode();
         mode.jeuAlaDemande();
 
         do {
-
-
-           choixJoueur = mode.finPartie();
-
+            choixJoueur = mode.finPartie();
 
             if (choixJoueur ==1){
                 mode.askChallenger();

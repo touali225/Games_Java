@@ -4,7 +4,7 @@ import java.util.*;
 public class Mode {
 
     Scanner sc = new Scanner(System.in);
-    String resumeMode = "";
+    String specJeux = "";
 
     /**
      * LA LISTE DE JEUX DISPONIBLES
@@ -41,33 +41,33 @@ public class Mode {
      * AFFICHAGE A L'ECRAN
      */
 
-    public int jeuAlaDemande(String category, String[] responses) {
-        System.out.println("Choix " + category);
-        for (int i = 1; i <= responses.length; i++)
-            System.out.println(i + " - " + responses[i - 1]);
-        System.out.println("Que souhaitez-vous comme" + category + "?");
+    public int jeuAlaDemande(String mode, String[] choix) {
+        System.out.println("Choix " + mode);
+        for (int i = 1; i <= choix.length; i++)
+            System.out.println(i + " - " + choix[i - 1]);
+        System.out.println("Que souhaitez-vous comme " + mode + "?");
         int choixJoueur = 0;
-        boolean responseIsGood;
+        boolean bonneReponse;
         do {
             try {
                 choixJoueur = sc.nextInt();
-                responseIsGood = (choixJoueur >= 1 && choixJoueur <= responses.length);
+                bonneReponse = (choixJoueur >= 1 && choixJoueur <= choix.length);
             } catch (InputMismatchException e) {
                 sc.next();
-                responseIsGood = false;
+                bonneReponse = false;
             }
-            if (responseIsGood) {
-                String choice = "Vous allez jouer au " + category + " : " + responses[choixJoueur - 1];
-                resumeMode += choice + "%n";
+            if (bonneReponse) {
+                String choice = "Vous allez jouer au " + mode + " : " + choix[choixJoueur - 1];
+                specJeux += choice + "%n";
                 //System.out.println(choice);
             } else {
-                boolean isVowel = "aeiouy".contains(Character.toString(category.charAt(0)));
+                boolean isVowel = "aeiouy".contains(Character.toString(mode.charAt(0)));
                 if (isVowel)
-                    System.out.println("Vous n'avez pas choisi d'" + category + " parmi les modes proposés");
+                    System.out.println("Vous n'avez pas choisi d'" + mode + " parmi les modes proposés");
                 else
-                    System.out.println("Vous n'avez pas choisi de " + category + " parmi les modes proposés");
+                    System.out.println("Vous n'avez pas choisi de " + mode + " parmi les modes proposés");
             }
-        } while (!responseIsGood);
+        } while (!bonneReponse);
         return choixJoueur;
     }
 
