@@ -66,7 +66,7 @@ public class Mode {
         System.out.println("Choix " + mode);
         for (int i = 1; i <= choix.length; i++)
             System.out.println(i + " - " + choix[i - 1]);
-        System.out.println("Que souhaitez-vous comme " + mode + "?");
+        System.out.println("Que souhaitez-vous comme " + mode + " ? ");
         int choixJoueur = 0;
         boolean bonneReponse;
         do {
