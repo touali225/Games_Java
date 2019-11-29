@@ -145,7 +145,9 @@ public class Mode {
          * ELABORATION DE LA COMBINAISON DU JOUEUR
          */
 
-        for (int i = 0; i <= 4; i++) {
+        int nbTour;
+
+        for (nbTour = 0; nbTour <= 4; nbTour++) {
             System.out.println("Merci de faire une proposition de 4 chiffres");
 
             //System.out.println("DSL");
@@ -155,13 +157,14 @@ public class Mode {
                 combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
             }
 
+
             /**
              * RESULTAT FIN PARTIE
              */
 
-            if (i == 4) {
+            if (nbTour == 4) {
                 System.out.println("Désolé, vous avez perdu !!!");
-                //System.out.println("Vous auriez dû jouer" + combinaisonSecrete);
+                System.out.println("Vous auriez dû jouer" + combinaisonSecrete);
                 break;
             }
 
@@ -192,6 +195,7 @@ public class Mode {
 
             if (combinaisonSecrete.equals(combinaisonJoueur)) {
                 System.out.println("Bravo, vous avez gagné !!!");
+                System.out.println("En effet, l'ordinateur avait bien joué " +combinaisonSecrete);
                 break;
             } else {
                 System.out.println("");
@@ -233,14 +237,15 @@ public class Mode {
             combinaisonSecrete.add(nbr);// ajout de la liste crée
         }
 
-        for (int k = 0; k <= 4; k++) {
+        int nbTour;
+        for (nbTour = 0; nbTour <= 4; nbTour++) {
 
 
             /**
              * VICTOIRE DU JOUEUR
              */
 
-            if (k == 4) {
+            if (nbTour == 4) {
                 System.out.println("");
                 System.out.println("Bravo, vous avez gagné !!!");
                 System.out.println("L'ordinateur aurait dû jouer" + combinaisonJoueur);
@@ -269,6 +274,7 @@ public class Mode {
             if (combinaisonSecrete.equals(combinaisonJoueur)) {
                 System.out.println("");
                 System.out.println("Désolé, vous avez perdu !!!");
+                System.out.println("L'ordinateur a deviné votre combinaison" +combinaisonJoueur);
                 break;
             }
 
