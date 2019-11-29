@@ -1,4 +1,4 @@
-package theophile;
+package jeux;
 
 import java.util.*;
 
