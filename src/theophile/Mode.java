@@ -4,7 +4,6 @@ import java.util.*;
 public class Mode {
 
     Scanner sc = new Scanner(System.in);
-    String specJeux = "";
 
     /**
      * LA LISTE DE JEUX DISPONIBLES
@@ -68,7 +67,7 @@ public class Mode {
             System.out.println(i + " - " + choix[i - 1]);
         System.out.println("Que souhaitez-vous comme " + mode + " ? ");
         int choixJoueur = 0;
-        boolean bonneReponse;
+       boolean bonneReponse;
         do {
             try {
                 choixJoueur = sc.nextInt();
@@ -77,17 +76,11 @@ public class Mode {
                 sc.next();
                 bonneReponse = false;
             }
-            if (bonneReponse) {
-                String choice = "Vous allez jouer au " + mode + " : " + choix[choixJoueur - 1];
-                specJeux += choice + "%n";
-                //System.out.println(choice);
-            } else {
                 boolean isVowel = "aeiouy".contains(Character.toString(mode.charAt(0)));
                 if (isVowel)
                     System.out.println("Vous n'avez pas choisi d'" + mode + " parmi les modes proposés");
                 else
                     System.out.println("Vous n'avez pas choisi de " + mode + " parmi les modes proposés");
-            }
         } while (!bonneReponse);
         return choixJoueur;
     }
