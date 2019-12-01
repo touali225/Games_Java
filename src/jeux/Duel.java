@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Duel {
 
-    private List<Integer> combinaisonSecreteJoueur;
+    private List<Integer> combinaisonJoueur;
     private List<Integer> combinaisonSecreteOrdinateur;
     private List<Integer> propositionJoueur;
     private List<Integer> propositionOrdinateur;
@@ -15,6 +15,7 @@ public class Duel {
     // choix des joueurs
 
     public void combinaisonOrdinateur() {
+        Utilitaire.generationCombinaisonAleatoire();
 
         Random random = new Random();
         for (int i = 0; i <= 3; i++) {
@@ -25,20 +26,14 @@ public class Duel {
     }
 
     public void combinaisonJoueur() {
-
         Scanner sc = new Scanner(System.in);
-        System.out.println("");
-        System.out.println("SPECIFICATIONS");
-        System.out.println("");
-        System.out.println("Le joueur et l’intelligence artificielle de l’ordinateur jouent tour à tour. ");
-        System.out.println("Le premier à trouver la combinaison secrète de l'autre a gagné !");
-        System.out.println("Bonne Chance ! ");
-        System.out.println("");
+
+        Menu.affichageDuel();
 
         System.out.println("Veuillez choisir une combinaison secrète de 4 chiffres");
         String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
         for (String s : listTmp) {
-            combinaisonSecreteJoueur.add(Integer.valueOf(s)); // conversion du string en integer
+            combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
         }
 
     }
@@ -47,12 +42,12 @@ public class Duel {
     public void afficherCombinaison() {
 
 
-        for (int i = 0; i < combinaisonSecreteJoueur.size(); i++) {
+        for (int i = 0; i < combinaisonJoueur.size(); i++) {
 
-            if (combinaisonSecreteJoueur.get(i) > combinaisonSecreteOrdinateur.get(i)) {
+            if (combinaisonJoueur.get(i) > combinaisonSecreteOrdinateur.get(i)) {
                 reponseJoueur.add("+");
                 reponseOrdinateur.add("-");
-            } else if (combinaisonSecreteJoueur.get(i) == combinaisonSecreteOrdinateur.get(i)) {
+            } else if (combinaisonJoueur.get(i) == combinaisonSecreteOrdinateur.get(i)) {
                 reponseJoueur.add("=");
                 reponseOrdinateur.add("=");
             } else {
@@ -66,7 +61,7 @@ public class Duel {
 
         System.out.println("*****************************************************************************************************************************************************************");
         //System.out.println("La combinaison secrète de l'ordinateur est : " + combinaisonSecreteOrdinateur);
-        //System.out.println("La combinaison secrète du joueur est : " + combinaisonSecreteJoueur);
+        //System.out.println("La combinaison secrète du joueur est : " + combinaisonJoueur);
         System.out.println("Les indices donnés par l'Ordinateur = " + reponseOrdinateur);
         System.out.println("Les indices donnés par le Joueur = " + reponseJoueur);
         reponseOrdinateur.clear();
@@ -85,7 +80,7 @@ public class Duel {
         }
 
 
-        while ((combinaisonSecreteOrdinateur != combinaisonSecreteJoueur) && ((propositionJoueur != propositionOrdinateur))) {
+        while ((combinaisonSecreteOrdinateur != combinaisonJoueur) && ((propositionJoueur != propositionOrdinateur))) {
 
             Scanner sc = new Scanner(System.in);
             System.out.println("Faites une proposition de 4 chiffres");
@@ -98,10 +93,10 @@ public class Duel {
 
 
                 int a = propositionOrdinateur.get(i);
-                if (propositionOrdinateur.get(i) > combinaisonSecreteJoueur.get(i)) {
+                if (propositionOrdinateur.get(i) > combinaisonJoueur.get(i)) {
                     a--;
                     propositionOrdinateur.set(i, a);
-                } else if (propositionOrdinateur.get(i) == combinaisonSecreteJoueur.get(i)) {
+                } else if (propositionOrdinateur.get(i) == combinaisonJoueur.get(i)) {
                 } else {
                     a++;
                     propositionOrdinateur.set(i, a);
@@ -118,29 +113,29 @@ public class Duel {
                     reponseOrdinateur.add("+");
                 }
             }
-            for (int i = 0; i < combinaisonSecreteJoueur.size(); i++) {
+            for (int i = 0; i < combinaisonJoueur.size(); i++) {
 
-                if (propositionOrdinateur.get(i) > combinaisonSecreteJoueur.get(i)) {
+                if (propositionOrdinateur.get(i) > combinaisonJoueur.get(i)) {
                     reponseJoueur.add("-");
-                } else if (propositionOrdinateur.get(i) == combinaisonSecreteJoueur.get(i)) {
+                } else if (propositionOrdinateur.get(i) == combinaisonJoueur.get(i)) {
                     reponseJoueur.add("=");
                 } else {
                     reponseJoueur.add("+");
                 }
             }
 
-                if((propositionJoueur).equals(combinaisonSecreteOrdinateur)) {
-                    System.out.println("Bravo, vous avez gagné !!!");
-                    System.out.println("En effet, la combinaison de l'ordinateur est : " + combinaisonSecreteOrdinateur);
-                    break;
-                }
+            if((propositionJoueur).equals(combinaisonSecreteOrdinateur)) {
+                System.out.println("Bravo, vous avez gagné !!!");
+                System.out.println("En effet, la combinaison de l'ordinateur est : " + combinaisonSecreteOrdinateur);
+                break;
+            }
 
-                if((propositionOrdinateur).equals(combinaisonSecreteJoueur)) {
-                    System.out.println("Désolé, vous avez perdu !!!");
-                    System.out.println("L'ordinateur a deviné votre combinaison : " + combinaisonSecreteJoueur);
-                    System.out.println("La combinaison secrète de l'ordinateur était : " + combinaisonSecreteOrdinateur);
-                    break;
-                }
+            if((propositionOrdinateur).equals(combinaisonJoueur)) {
+                System.out.println("Désolé, vous avez perdu !!!");
+                System.out.println("L'ordinateur a deviné votre combinaison : " + combinaisonJoueur);
+                System.out.println("La combinaison secrète de l'ordinateur était : " + combinaisonSecreteOrdinateur);
+                break;
+            }
 
 
             System.out.println("*****************************************************************************************************************************************************************");
@@ -152,8 +147,8 @@ public class Duel {
             propositionJoueur.clear();
             reponseJoueur.clear();
             System.out.println("*****************************************************************************************************************************************************************");
-    }
         }
+    }
 
     // constructeurs
 
@@ -161,7 +156,7 @@ public class Duel {
 
         combinaisonSecreteOrdinateur = new ArrayList<>(); // initialisation
         combinaisonOrdinateur();
-        combinaisonSecreteJoueur = new ArrayList<>(); // initialisation
+        combinaisonJoueur = new ArrayList<>(); // initialisation
         combinaisonJoueur();
         reponseOrdinateur = new ArrayList<>();
         reponseJoueur = new ArrayList<>();

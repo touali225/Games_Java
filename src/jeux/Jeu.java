@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Jeu {
     Scanner sc = new Scanner(System.in);
     Challenger challenger ;
+    Defenseur defenseur;
 
     public void executionJeux(){
 
@@ -56,13 +57,20 @@ public class Jeu {
                 challenger.askChallenger();
                 break;
             case 2:
-                //askDefenseur();
+                defenseur = new Defenseur();
+                defenseur.askDefenseur();
                 break;
             case 3:
-                Duel duel = new Duel();
+                 Duel duel = new Duel();
                 break;
         }
     }
+
+
+    /**
+     * LA LISTE DE JEUX DISPONIBLES
+     */
+
     public int jeuDispo() {
         String[] Jeux = {"Challenger", "Defenseur", "Duel"};
         return jeuAlaDemande("Jeu", Jeux);

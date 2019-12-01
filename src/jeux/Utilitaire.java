@@ -1,17 +1,46 @@
 package jeux;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+
 
 public class Utilitaire {
 
+    /**
+     * ELABORATION DE LA COMBINAISON DU JOUEUR
+     */
+
+    public static ArrayList<String>generationReponse(){
+
+        List<Integer> combinaisonJoueur = new ArrayList<>();
+        List<Integer> combinaisonSecrete = new ArrayList<>();
+        ArrayList<String> reponse = new ArrayList<>();
+
+        for (int j = 0; j < combinaisonSecrete.size(); j++) {
+
+            if (combinaisonSecrete.get(j) > combinaisonJoueur.get(j))
+                reponse.add("+");
+            else if (combinaisonSecrete.get(j) == combinaisonJoueur.get(j))
+                reponse.add("=");
+            else
+                reponse.add("-");
+        }return reponse;
+    }
 
 
-    public static void saisieUtilisitaire(){
+    public static List<Integer>saisieUtilisateur(){
+        Scanner sc = new Scanner(System.in);
+
+        List<Integer> combinaisonJoueur = new ArrayList<>();
+        String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
+        for (String s : listTmp) {
+            combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
+        }return combinaisonJoueur;
 
     }
 
+    /**
+     * ELABORATION DE LA COMBINAISON ALEATOIRE
+     */
     public static List<Integer> generationCombinaisonAleatoire (){
         Random random = new Random();
         List<Integer> combinaisonSecrete = new ArrayList<>();//Integer la version objet  de int creer une liste
@@ -21,4 +50,5 @@ public class Utilitaire {
         }
         return combinaisonSecrete;
     }
+
 }
