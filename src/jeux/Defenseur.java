@@ -26,7 +26,7 @@ public class Defenseur extends Mode {
 
 
         /**
-         * ELABORATION DE LA COMBINAISON ALEATOIRE
+         * ELABORATION DE LA COMBINAISON ALEATOIRE DE L'ORDINATEUR
          */
         reponse = new ArrayList<>();
         combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();//Integer la version objet  de int creer une liste
@@ -37,7 +37,7 @@ public class Defenseur extends Mode {
             nbTour--;
 
             /**
-             * LES REPONSES
+             * LES REPONSES DU JOUEUR BASEE SUR LA COMBINAISON DE L'ORDINATEUR
              */
             ArrayList<String> reponse = new ArrayList<>();
             for (int i = 0; i < combinaisonJoueur.size(); i++) {
@@ -55,7 +55,7 @@ public class Defenseur extends Mode {
 
 
             /**
-             *  MODIFICATION DE LA PROPOSITION BASEE SUR LES CONSIGNES DU JOUEUR
+             *  MODIFICATION DE LA PROPOSITION L'ORDINATEUR BASEE SUR LES CONSIGNES DU JOUEUR
              *
              */
             for (int i = 0; i <= 3; i++) {
@@ -72,7 +72,9 @@ public class Defenseur extends Mode {
                 }
 
             }
-        } /**
+        }
+
+        /**
          * DETECTION DU RESULTAT DU JEU
          */
 
