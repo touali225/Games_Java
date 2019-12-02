@@ -1,9 +1,6 @@
 package jeux;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class Challenger extends Mode {
     /**
@@ -14,6 +11,7 @@ public class Challenger extends Mode {
         Scanner sc = new Scanner(System.in);
         Menu.affichageChallenger();
 
+
         /**
          * ELABORATION DE LA COMBINAISON ALEATOIRE
          */
@@ -23,11 +21,30 @@ public class Challenger extends Mode {
          * ELABORATION DE LA COMBINAISON DU JOUEUR
          */
 
-        int nbTour;
-
-        for (nbTour = 0; nbTour <= Configuration.nbreTour; nbTour++) {
+        int nbTour = Configuration.nbreTour;
+        boolean victoire=false;
+        //nbTour <= Configuration.nbreTour; nbTour++)
+        while (nbTour > 0 && !victoire) {
             Menu.affichageSaisieUtilisateur();
             List<Integer> combinaisonJoueur = Utilitaire.saisieUtilisateur();
+
+//            boolean bonneReponse;
+//            do {
+//                try {
+//                    combinaisonJoueur= sc.nextInt();
+//                    bonneReponse = true;
+//                } catch (InputMismatchException e) {
+//                    sc.next();
+//                    System.out.println("Merci de faire une proposition de 4 chiffres");
+//                    bonneReponse = false;
+//                }
+//                boolean isVowel = "aeiouy".contains(Character.toString(mode.charAt(0)));
+//                if (isVowel)
+//                    System.out.println("Vous n'avez pas choisi une combinaison de 4 chiffres");
+//                else
+//                    System.out.println("Vous n'avez pas choisi une combinaison de 4 chiffres");
+//            } while (!bonneReponse);
+//            return combinaisonJoueur;
 
             /**
              * RESULTAT FIN PARTIE
