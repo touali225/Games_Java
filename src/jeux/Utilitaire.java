@@ -31,11 +31,21 @@ public class Utilitaire {
         Scanner sc = new Scanner(System.in);
 
         List<Integer> combinaisonJoueur = new ArrayList<>();
-        String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
-        for (String s : listTmp) {
-            combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
-        }return combinaisonJoueur;
+try {
 
+
+    String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
+    for (String s : listTmp) {
+        combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
+    }
+} catch (Exception e){
+    System.out.println("Erreur Saisie, valeur par defaut 1234");
+    combinaisonJoueur.add(0);
+    combinaisonJoueur.add(1);
+    combinaisonJoueur.add(2);
+    combinaisonJoueur.add(3);
+        }
+    return combinaisonJoueur;
     }
 
     /**

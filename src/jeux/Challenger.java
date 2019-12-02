@@ -3,6 +3,9 @@ package jeux;
 import java.util.*;
 
 public class Challenger extends Mode {
+
+    List<Integer> combinaisonSecrete;
+    boolean victoire;
     /**
      * MODE CHALLENGER
      */
@@ -11,79 +14,66 @@ public class Challenger extends Mode {
         Scanner sc = new Scanner(System.in);
         Menu.affichageChallenger();
 
-
         /**
          * ELABORATION DE LA COMBINAISON ALEATOIRE
          */
-        List<Integer> combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();
+        combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();
 
         /**
-         * ELABORATION DE LA COMBINAISON DU JOUEUR
+         * AFFICHAGE DU RESULTAT DU JEU
          */
 
         int nbTour = Configuration.nbreTour;
-        boolean victoire=false;
-        //nbTour <= Configuration.nbreTour; nbTour++)
+        victoire=false;
+
         while (nbTour > 0 && !victoire) {
-            Menu.affichageSaisieUtilisateur();
-            List<Integer> combinaisonJoueur = Utilitaire.saisieUtilisateur();
+            tourChallenger();
+             nbTour--;
+        } if(victoire){
+            Menu.affichageVictoire(combinaisonSecrete);
+        } else {
+            Menu.affichageDefaite(combinaisonSecrete);
+        }
 
-//            boolean bonneReponse;
-//            do {
-//                try {
-//                    combinaisonJoueur= sc.nextInt();
-//                    bonneReponse = true;
-//                } catch (InputMismatchException e) {
-//                    sc.next();
-//                    System.out.println("Merci de faire une proposition de 4 chiffres");
-//                    bonneReponse = false;
-//                }
-//                boolean isVowel = "aeiouy".contains(Character.toString(mode.charAt(0)));
-//                if (isVowel)
-//                    System.out.println("Vous n'avez pas choisi une combinaison de 4 chiffres");
-//                else
-//                    System.out.println("Vous n'avez pas choisi une combinaison de 4 chiffres");
-//            } while (!bonneReponse);
-//            return combinaisonJoueur;
 
-            /**
-             * RESULTAT FIN PARTIE
-             */
 
-            if (nbTour == Configuration.nbreTour) {
-                Menu.affichageDefaite(combinaisonSecrete);
-                break;
-            }
 
-            /**
-             * AFFICHAGE DE LA REPONSE
-             */
 
-            //Comparer, stocker et afficher la réponse.
+    } /**
+     * SAISIE UTILISATEUR
+     */
+    public void tourChallenger(){
+        Menu.affichageSaisieUtilisateur();
+        List<Integer> combinaisonJoueur = Utilitaire.saisieUtilisateur();
+        System.out.println(combinaisonSecrete);
 
-            ArrayList<String> reponse = new ArrayList<>();
-            for (int j = 0; j < combinaisonSecrete.size(); j++) {
 
-                if (combinaisonSecrete.get(j) > combinaisonJoueur.get(j))
-                    reponse.add("+");
-                else if (combinaisonSecrete.get(j) == combinaisonJoueur.get(j))
-                    reponse.add("=");
-                else
-                    reponse.add("-");
-            }
 
-            Menu.affichageReponse(reponse);
-            //System.out.println("Vous auriez dû jouer cette combinaison:" + combinaisonSecrete);
+        /**
+         * AFFICHAGE DE LA REPONSE DE L'ORDINATEUR BASEE SUR LA SAISIE DU JOUEUR
+         */
 
-            /**
-             * AFFICHAGE DE LA VICTOIRE
-             */
-            if (combinaisonSecrete.equals(combinaisonJoueur)) {
-                Menu.affichageVictoire(combinaisonSecrete);
-                break;
-            } else {
-                System.out.println("");
-            }
+        //Comparer, stocker et afficher la réponse.
+
+        ArrayList<String> reponse = new ArrayList<>();
+        for (int j = 0; j < combinaisonSecrete.size(); j++) {
+
+            if (combinaisonSecrete.get(j) > combinaisonJoueur.get(j))
+                reponse.add("+");
+            else if (combinaisonSecrete.get(j) == combinaisonJoueur.get(j))
+                reponse.add("=");
+            else
+                reponse.add("-");
+        }
+
+        Menu.affichageReponse(reponse);
+        //System.out.println("Vous auriez dû jouer cette combinaison:" + combinaisonSecrete);
+
+        /**
+         * DETECTION DE LA VICTOIRE
+         */
+        if (combinaisonSecrete.equals(combinaisonJoueur)) {
+            victoire=true;
         }
     }
 }
