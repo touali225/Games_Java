@@ -21,7 +21,7 @@ public class Defenseur extends Mode {
          */
 
         Menu.affichageSaisieUtilisateur();
-        List<Integer> combinaisonJoueur = Utilitaire.saisieUtilisateur();
+        combinaisonJoueur = Utilitaire.saisieUtilisateur();
         //System.out.println(combinaisonJoueur);
 
 
@@ -32,46 +32,13 @@ public class Defenseur extends Mode {
         combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();//Integer la version objet  de int creer une liste
         //System.out.println(combinaisonSecrete);
 
+
+
         int nbTour = Configuration.nbreTour;
         while (nbTour > 0 && !victoire) {
+            tourDefenseur();
             nbTour--;
 
-            /**
-             * LES REPONSES DU JOUEUR BASEE SUR LA COMBINAISON DE L'ORDINATEUR
-             */
-            ArrayList<String> reponse = new ArrayList<>();
-            for (int i = 0; i < combinaisonJoueur.size(); i++) {
-
-                if (combinaisonJoueur.get(i) > combinaisonSecrete.get(i))
-                    reponse.add("+");
-                else if (combinaisonJoueur.get(i) == combinaisonSecrete.get(i))
-                    reponse.add("=");
-                else
-                    reponse.add("-");
-            }
-            System.out.println("Combinaison Ordinateur" + combinaisonSecrete);
-            Menu.affichageReponse(reponse);
-            reponse.clear();
-
-
-            /**
-             *  MODIFICATION DE LA PROPOSITION L'ORDINATEUR BASEE SUR LES CONSIGNES DU JOUEUR
-             *
-             */
-            for (int i = 0; i <= 3; i++) {
-
-                int a = combinaisonSecrete.get(i);
-                if (combinaisonSecrete.get(i) > combinaisonJoueur.get(i)) {
-                    a--;
-                    combinaisonSecrete.set(i, a);
-                } else if (combinaisonSecrete.get(i) == combinaisonJoueur.get(i)) {
-                } else {
-                    a++;
-                    combinaisonSecrete.set(i, a);
-
-                }
-
-            }
         }
 
         /**
@@ -84,4 +51,45 @@ public class Defenseur extends Mode {
             Menu.affichageVictoireDefenseur(combinaisonJoueur);
         }
     }
-}
+    public void tourDefenseur(){
+
+        /**
+         * LES REPONSES DU JOUEUR BASEE SUR LA COMBINAISON DE L'ORDINATEUR
+         */
+        ArrayList<String> reponse = new ArrayList<>();
+        for (int i = 0; i < combinaisonJoueur.size(); i++) {
+
+            if (combinaisonJoueur.get(i) > combinaisonSecrete.get(i))
+                reponse.add("+");
+            else if (combinaisonJoueur.get(i) == combinaisonSecrete.get(i))
+                reponse.add("=");
+            else
+                reponse.add("-");
+        }
+        System.out.println("Combinaison Ordinateur" + combinaisonSecrete);
+        Menu.affichageReponse(reponse);
+        reponse.clear();
+
+
+        /**
+         *  MODIFICATION DE LA PROPOSITION L'ORDINATEUR BASEE SUR LES CONSIGNES DU JOUEUR
+         *
+         */
+        for (int i = 0; i <= 3; i++) {
+
+            int a = combinaisonSecrete.get(i);
+            if (combinaisonSecrete.get(i) > combinaisonJoueur.get(i)) {
+                a--;
+                combinaisonSecrete.set(i, a);
+            } else if (combinaisonSecrete.get(i) == combinaisonJoueur.get(i)) {
+            } else {
+                a++;
+                combinaisonSecrete.set(i, a);
+
+            }
+
+        }
+    }
+
+    }
+
