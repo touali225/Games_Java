@@ -51,7 +51,7 @@ public class Defenseur extends Mode {
             Menu.affichageVictoireDefenseur(combinaisonJoueur);
         }
     }
-    public void tourDefenseur(){
+    public boolean tourDefenseur(){
 
         /**
          * LES REPONSES DU JOUEUR BASEE SUR LA COMBINAISON DE L'ORDINATEUR
@@ -88,7 +88,10 @@ public class Defenseur extends Mode {
 
             }
 
+        } if (combinaisonSecrete.equals(combinaisonJoueur)){
+            victoire =true;
         }
+        return victoire;
     }
 
     }

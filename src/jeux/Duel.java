@@ -53,7 +53,20 @@ public class Duel {
         reponseJoueur.clear();
     }
 
+    boolean victoireJoueur;
+    boolean victoireDefenseur;
+    Challenger challenger = new Challenger();
+    Defenseur defenseur = new Defenseur();
+
     public void aVosJeux() {
+        victoireJoueur = false;
+        victoireDefenseur =false;
+        while ( !victoireJoueur && !victoireDefenseur){
+            victoireJoueur = challenger.tourChallenger();
+            victoireDefenseur = defenseur.tourDefenseur();
+        }
+
+        //mettre le resultat du jeu selon un test conditionnel
 
         propositionOrdinateur = Utilitaire.generationCombinaisonAleatoire();
 
@@ -119,16 +132,14 @@ public class Duel {
 
     public Duel() {
 
-        combinaisonSecrete = new ArrayList<>(); // initialisation
-        combinaisonOrdinateur();
-        combinaisonJoueur = new ArrayList<>(); // initialisation
-        combinaisonJoueur();
-        reponseOrdinateur = new ArrayList<>();
-        reponseJoueur = new ArrayList<>();
-        afficherCombinaison();
-        propositionJoueur = new ArrayList<>();
-        propositionOrdinateur = new ArrayList<>();
-        aVosJeux();
+        combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();
+        combinaisonJoueur = Utilitaire.saisieUtilisateur();
+//        reponseOrdinateur = new ArrayList<>();
+//        reponseJoueur = new ArrayList<>();
+//        afficherCombinaison();
+//        propositionJoueur = new ArrayList<>();
+//        propositionOrdinateur = new ArrayList<>();
+
 
     }
 

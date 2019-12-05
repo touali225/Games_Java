@@ -42,7 +42,7 @@ public class Challenger extends Mode {
     } /**
      * SAISIE UTILISATEUR
      */
-    public void tourChallenger(){
+    public boolean tourChallenger(){
         Menu.affichageSaisieUtilisateur();
         List<Integer> combinaisonJoueur = Utilitaire.saisieUtilisateur();
         //System.out.println(combinaisonSecrete);
@@ -75,5 +75,6 @@ public class Challenger extends Mode {
         if (combinaisonSecrete.equals(combinaisonJoueur)) {
             victoire=true;
         }
+        return victoire;
     }
 }

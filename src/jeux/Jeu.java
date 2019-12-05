@@ -62,6 +62,7 @@ public class Jeu {
                 break;
             case 3:
                  Duel duel = new Duel();
+                 duel.aVosJeux();
                 break;
         }
     }
