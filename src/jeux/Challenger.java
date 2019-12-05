@@ -45,7 +45,7 @@ public class Challenger extends Mode {
     public void tourChallenger(){
         Menu.affichageSaisieUtilisateur();
         List<Integer> combinaisonJoueur = Utilitaire.saisieUtilisateur();
-        System.out.println(combinaisonSecrete);
+        //System.out.println(combinaisonSecrete);
 
 
 
