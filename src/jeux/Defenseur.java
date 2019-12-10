@@ -10,9 +10,9 @@ public class Defenseur extends Mode {
     ArrayList reponse;
     boolean victoire;
 
-    public void askDefenseur() {
 
-        Scanner sc = new Scanner(System.in);
+    public Defenseur(){
+
         Menu.affichageDefenseur();
 
 
@@ -22,16 +22,15 @@ public class Defenseur extends Mode {
 
         Menu.affichageSaisieUtilisateur();
         combinaisonJoueur = Utilitaire.saisieUtilisateur();
-        //System.out.println(combinaisonJoueur);
-
 
         /**
          * ELABORATION DE LA COMBINAISON ALEATOIRE DE L'ORDINATEUR
          */
         reponse = new ArrayList<>();
         combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();//Integer la version objet  de int creer une liste
-        //System.out.println(combinaisonSecrete);
+    }
 
+    public void askDefenseur() {
 
 
         int nbTour = Configuration.nbreTour;
@@ -66,8 +65,8 @@ public class Defenseur extends Mode {
             else
                 reponse.add("-");
         }
-        System.out.println("Combinaison Ordinateur" + combinaisonSecrete);
-        Menu.affichageReponse(reponse);
+        System.out.println("Proposition de l'ordinateur" + combinaisonSecrete);
+        Menu.affichageReponseDefenseur(reponse);
         reponse.clear();
 
 

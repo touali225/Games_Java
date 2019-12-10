@@ -6,18 +6,22 @@ public class Challenger extends Mode {
 
     List<Integer> combinaisonSecrete;
     boolean victoire;
-    /**
-     * MODE CHALLENGER
-     */
-    public void askChallenger() {
 
-        Scanner sc = new Scanner(System.in);
+    public Challenger(){
+
         Menu.affichageChallenger();
 
         /**
          * ELABORATION DE LA COMBINAISON ALEATOIRE
          */
         combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();
+
+    }
+    /**
+     * MODE CHALLENGER
+     */
+    public void askChallenger() {
+
 
         /**
          * AFFICHAGE DU RESULTAT DU JEU

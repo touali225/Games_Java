@@ -91,7 +91,12 @@ public static void affichageSaisieUtilisateur(){
 
     public static void affichageReponse(ArrayList<String> i){
 
-        System.out.println("Réponse = " + i);
+        System.out.println("Les indices de l'ordinateur : " + i);
+    }
+
+    public static void affichageReponseDefenseur(ArrayList<String> j){
+
+        System.out.println("Les indices du joueur : " + j);
     }
 
 }

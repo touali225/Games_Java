@@ -59,6 +59,7 @@ try {
             combinaisonSecrete.add(nbr);// ajout de la liste crée
         }
         return combinaisonSecrete;
+
     }
 
 }
