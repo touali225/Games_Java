@@ -4,13 +4,13 @@ import java.util.*;
 
 public class Duel {
 
-    private List<Integer> combinaisonJoueur;
-    private List<Integer> combinaisonSecrete;
-    private List<Integer> propositionJoueur;
-    private List<Integer> propositionOrdinateur;
-    private ArrayList<String> reponseJoueur;
-    private ArrayList<String> reponseOrdinateur;
-    private boolean agagne;
+//    private List<Integer> combinaisonJoueur;
+//    private List<Integer> combinaisonSecrete;
+//    private List<Integer> propositionJoueur;
+//    private List<Integer> propositionOrdinateur;
+//    private ArrayList<String> reponseJoueur;
+//    private ArrayList<String> reponseOrdinateur;
+//    private boolean agagne;
 
     // choix des joueurs
 
@@ -55,27 +55,28 @@ public class Duel {
 
     boolean victoireJoueur;
     boolean victoireDefenseur;
-    Challenger challenger = new Challenger();
-    Defenseur defenseur = new Defenseur();
+    Challenger challenger ;
+    Defenseur defenseur  ;
 
     public void aVosJeux() {
         victoireJoueur = false;
         victoireDefenseur = false;
         while (!victoireJoueur && !victoireDefenseur) {
-            victoireJoueur = challenger.tourChallenger();
-            victoireDefenseur = defenseur.tourDefenseur();
+            victoireJoueur = challenger.tourChallenger();//tour challenger
+            victoireDefenseur = defenseur.tourDefenseur();//tour defenseur
         }
-        if (victoireJoueur) {
+        if(victoireJoueur && victoireDefenseur){
+            System.out.println("Vous avez la même combinaison !"); //
+        }
+        else if (victoireJoueur) {
 
-            Menu.affichageVictoire(combinaisonSecrete);
+            Menu.affichageVictoire(challenger.combinaisonSecrete);
+            Menu.affichageVictoireDefenseur(defenseur.combinaisonJoueur);
         } else {
-            Menu.affichageDefaite(combinaisonSecrete);
+            Menu.affichageDefaite(challenger.combinaisonSecrete);
+            Menu.affichageDefaiteDefenseur(defenseur.combinaisonJoueur);
         }
-        if (victoireDefenseur) {
-            Menu.affichageDefaiteDefenseur(combinaisonJoueur);
-        } else {
-            Menu.affichageVictoireDefenseur(combinaisonJoueur);
-        }
+
 
 //        if (victoireDefenseur) {
 //
@@ -153,10 +154,13 @@ public class Duel {
 
     public Duel() {
 
-        combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();
-        System.out.println("La combinaison secrete de l'ordinateur est :" +combinaisonSecrete);
-        combinaisonJoueur = Utilitaire.saisieUtilisateur();
-        System.out.println("La combinaison secrete joueur est :" +combinaisonJoueur);
+        challenger = new Challenger();
+        defenseur = new Defenseur();
+
+//        combinaisonSecrete = Utilitaire.generationCombinaisonAleatoire();
+       System.out.println("La combinaison secrete de l'ordinateur est :" +challenger.combinaisonSecrete); // combinaisonsecrete de l'objet challenger
+//        combinaisonJoueur = Utilitaire.saisieUtilisateur();
+        System.out.println("La combinaison secrete joueur est :" +defenseur.combinaisonJoueur); // combinaison joueur de l'objet defenseur
 
         //reponseOrdinateur = new ArrayList<>();
         //reponseJoueur = new ArrayList<>();

@@ -22,6 +22,10 @@ public class Challenger extends Mode {
      */
     public void askChallenger() {
 
+        if (Configuration.modeDev){
+            System.out.println(" Mode dev active ! combinaison secrète de l'ordi " +combinaisonSecrete);
+        }
+
 
         /**
          * AFFICHAGE DU RESULTAT DU JEU
@@ -80,5 +84,6 @@ public class Challenger extends Mode {
             victoire=true;
         }
         return victoire;
+
     }
 }

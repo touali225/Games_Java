@@ -8,6 +8,13 @@ public class Jeu {
     Scanner sc = new Scanner(System.in);
     Challenger challenger ;
     Defenseur defenseur;
+    Configuration config;
+
+    public Jeu(){
+
+        config = new Configuration(); // un objet de type configuration
+
+    }
 
     public void executionJeux(){
 
