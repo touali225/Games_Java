@@ -8,6 +8,18 @@ public class Menu {
     private int nbTour;
     private int tailleCombinaison;
 
+    public static void affichageDefaiteDuel(List<Integer> j){
+
+        System.out.println("Désolé, vous avez perdu !!!");
+        System.out.println("L'ordinateur a déviné votre combinaison");
+    }
+
+    public static void affichageVictoireDuel(List<Integer> i){
+
+        System.out.println("Bravo, vous avez gagné !!!");
+        System.out.println("Vous avez déviné la combinaison de l'ordinateur");
+    }
+
     public static void affichageDuel(){
 
         System.out.println("");

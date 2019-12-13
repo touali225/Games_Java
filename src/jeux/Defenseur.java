@@ -65,7 +65,7 @@ public class Defenseur extends Mode {
             else
                 reponse.add("-");
         }
-        System.out.println("Proposition de l'ordinateur" + combinaisonSecrete);
+        //System.out.println("Proposition de l'ordinateur" + combinaisonSecrete);
         Menu.affichageReponseDefenseur(reponse);
         reponse.clear();
 
