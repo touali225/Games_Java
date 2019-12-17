@@ -1,9 +1,12 @@
 package jeux;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.*;
 
 public class Utilitaire {
-
+    static Logger logger = LogManager.getLogger(Utilitaire.class);
     /**
      * ELABORATION DE LA COMBINAISON DU JOUEUR
      */
@@ -26,7 +29,9 @@ public class Utilitaire {
 
                 }
 
+
             } catch (Exception e){
+                logger.error(e);
                 System.out.println("Erreur Saisie, valeur par defaut 1234");
                 combinaisonJoueur.clear();
                 for(int i=0; i<Configuration.tailleCombinaison; i++ ){
