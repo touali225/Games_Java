@@ -23,9 +23,8 @@ public class Challenger extends Mode {
     public void askChallenger() {
 
         if (Configuration.modeDev){
-            System.out.println(" Mode dev active ! combinaison secrète de l'ordi " +combinaisonSecrete);
+            System.out.println(" Mode dev activé ! La combinaison secrète de l'ordinateur " +combinaisonSecrete);
         }
-
 
         /**
          * AFFICHAGE DU RESULTAT DU JEU
@@ -36,16 +35,12 @@ public class Challenger extends Mode {
 
         while (nbTour > 0 && !victoire) {
             tourChallenger();
-             nbTour--;
+            nbTour--;
         } if(victoire){
             Menu.affichageVictoire(combinaisonSecrete);
         } else {
             Menu.affichageDefaite(combinaisonSecrete);
         }
-
-
-
-
 
     } /**
      * SAISIE UTILISATEUR
@@ -53,15 +48,10 @@ public class Challenger extends Mode {
     public boolean tourChallenger(){
         Menu.affichageSaisieUtilisateur();
         List<Integer> combinaisonJoueur = Utilitaire.saisieUtilisateur();
-        //System.out.println(combinaisonSecrete);
-
-
 
         /**
          * AFFICHAGE DE LA REPONSE DE L'ORDINATEUR BASEE SUR LA SAISIE DU JOUEUR
          */
-
-        //Comparer, stocker et afficher la réponse.
 
         ArrayList<String> reponse = new ArrayList<>();
         for (int j = 0; j < combinaisonSecrete.size(); j++) {
@@ -75,7 +65,6 @@ public class Challenger extends Mode {
         }
 
         Menu.affichageReponse(reponse);
-        //System.out.println("Vous auriez dû jouer cette combinaison:" + combinaisonSecrete);
 
         /**
          * DETECTION DE LA VICTOIRE
@@ -84,6 +73,5 @@ public class Challenger extends Mode {
             victoire=true;
         }
         return victoire;
-
     }
 }

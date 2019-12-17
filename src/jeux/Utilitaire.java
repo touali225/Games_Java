@@ -2,50 +2,43 @@ package jeux;
 
 import java.util.*;
 
-
 public class Utilitaire {
 
     /**
      * ELABORATION DE LA COMBINAISON DU JOUEUR
      */
 
-    public static ArrayList<String>generationReponse(){
-
-        List<Integer> combinaisonJoueur = new ArrayList<>();
-        List<Integer> combinaisonSecrete = new ArrayList<>();
-        ArrayList<String> reponse = new ArrayList<>();
-
-        for (int j = 0; j < combinaisonSecrete.size(); j++) {
-
-            if (combinaisonSecrete.get(j) > combinaisonJoueur.get(j))
-                reponse.add("+");
-            else if (combinaisonSecrete.get(j) == combinaisonJoueur.get(j))
-                reponse.add("=");
-            else
-                reponse.add("-");
-        }return reponse;
-    }
-
-
     public static List<Integer>saisieUtilisateur(){
         Scanner sc = new Scanner(System.in);
-
         List<Integer> combinaisonJoueur = new ArrayList<>();
-try {
 
+        do {
 
-    String[] listTmp = sc.nextLine().split(""); //creation tableau temporaire en string
-    for (String s : listTmp) {
-        combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
-    }
-} catch (Exception e){
-    System.out.println("Erreur Saisie, valeur par defaut 1234");
-    combinaisonJoueur.add(0);
-    combinaisonJoueur.add(1);
-    combinaisonJoueur.add(2);
-    combinaisonJoueur.add(3);
-        }
-    return combinaisonJoueur;
+            combinaisonJoueur.clear();
+
+            try {
+
+                String combinaisonTemporaire = sc.nextLine();
+                if(combinaisonTemporaire.length()==Configuration.tailleCombinaison){
+                    for (String s : combinaisonTemporaire.split("")) {
+                        combinaisonJoueur.add(Integer.valueOf(s)); // conversion du string en integer
+                    }
+
+                }
+
+            } catch (Exception e){
+                System.out.println("Erreur Saisie, valeur par defaut 1234");
+                combinaisonJoueur.clear();
+                for(int i=0; i<Configuration.tailleCombinaison; i++ ){
+                    combinaisonJoueur.add(i);
+                }
+            }
+            if(combinaisonJoueur.size()!= Configuration.tailleCombinaison){
+                System.out.println("Renseignez une combinaison " + Configuration.tailleCombinaison + " Chiffres SVP !!!");
+
+            }
+        }  while (combinaisonJoueur.size()!= Configuration.tailleCombinaison);
+        return combinaisonJoueur;
     }
 
     /**
@@ -61,5 +54,4 @@ try {
         return combinaisonSecrete;
 
     }
-
 }

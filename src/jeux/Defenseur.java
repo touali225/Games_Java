@@ -10,17 +10,15 @@ public class Defenseur extends Mode {
     ArrayList reponse;
     boolean victoire;
 
-
     public Defenseur(){
 
         Menu.affichageDefenseur();
-
 
         /**
          * SAISIE DE LA COMBINAISON DU JOUEUR
          */
 
-        Menu.affichageSaisieUtilisateur();
+        Menu.affichageSaisieUtilisateurDefenseur();
         combinaisonJoueur = Utilitaire.saisieUtilisateur();
 
         /**
@@ -31,7 +29,6 @@ public class Defenseur extends Mode {
     }
 
     public void askDefenseur() {
-
 
         int nbTour = Configuration.nbreTour;
         while (nbTour > 0 && !victoire) {
@@ -65,11 +62,9 @@ public class Defenseur extends Mode {
             else
                 reponse.add("-");
         }
-        //System.out.println("Proposition de l'ordinateur" + combinaisonSecrete);
+
         Menu.affichageReponseDefenseur(reponse);
         reponse.clear();
-
-
         /**
          *  MODIFICATION DE LA PROPOSITION L'ORDINATEUR BASEE SUR LES CONSIGNES DU JOUEUR
          *
@@ -92,6 +87,4 @@ public class Defenseur extends Mode {
         }
         return victoire;
     }
-
-    }
-
+}

@@ -63,7 +63,12 @@ public class Menu {
         System.out.println("En effet, l'ordinateur n'a pas déviné votre combinaison " +i);
     }
 
-public static void affichageChallenger(){
+    public static void affichageSaisieUtilisateurDefenseur(){
+        System.out.println("Faîtes vos jeux ! Choississez une combinaison secrète de " + Configuration.tailleCombinaison + " chiffres ! ");
+
+    }
+
+    public static void affichageChallenger(){
         System.out.println("");
         System.out.println("SPECIFICATIONS");
         System.out.println("");
@@ -75,29 +80,29 @@ public static void affichageChallenger(){
     }
 
 
-public static void affichageFinPartie(){
-    System.out.println("");
-    System.out.println(".............................................................................................................................");
-    System.out.println("Que souhaitez - vous ?");
-    System.out.println("1 - Rejouer une nouvelle partie ?");
-    System.out.println("2 - Lancer un nouveau mode ?");
-    System.out.println("3 - Sortir?");
-}
+    public static void affichageFinPartie(){
+        System.out.println("");
+        System.out.println(".............................................................................................................................");
+        System.out.println("Que souhaitez - vous ?");
+        System.out.println("1 - Rejouer une nouvelle partie ?");
+        System.out.println("2 - Lancer un nouveau mode ?");
+        System.out.println("3 - Sortir?");
+    }
 
-public static void affichageDefaite(List<Integer> i){
+    public static void affichageDefaite(List<Integer> i){
 
-    System.out.println("Désolé, vous avez perdu !!!");
-    System.out.println("Vous auriez dû jouer" + i);
-}
+        System.out.println("Désolé, vous avez perdu !!!");
+        System.out.println("Vous auriez dû jouer" + i);
+    }
 
-public static void affichageVictoire(List<Integer> i){
+    public static void affichageVictoire(List<Integer> i){
 
-    System.out.println("Bravo, vous avez gagné !!!");
-    System.out.println("En effet, l'ordinateur a bien joué " +i);
-}
+        System.out.println("Bravo, vous avez gagné !!!");
+        System.out.println("En effet, l'ordinateur a bien joué " +i);
+    }
 
-public static void affichageSaisieUtilisateur(){
-    System.out.println("Merci de faire une proposition de 4 chiffres");
+    public static void affichageSaisieUtilisateur(){
+        System.out.println("Devinez la combinaison secrète de l'ordinateur ! Une proposition de " + Configuration.tailleCombinaison + " chiffres est requise ! ");
 
     }
 

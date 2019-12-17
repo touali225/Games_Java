@@ -68,12 +68,11 @@ public class Jeu {
                 defenseur.askDefenseur();
                 break;
             case 3:
-                 Duel duel = new Duel();
-                 duel.aVosJeux();
+                Duel duel = new Duel();
+                duel.aVosJeux();
                 break;
         }
     }
-
 
     /**
      * LA LISTE DE JEUX DISPONIBLES
