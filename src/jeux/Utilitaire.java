@@ -51,10 +51,10 @@ public class Utilitaire {
      */
     public static List<Integer> generationCombinaisonAleatoire (){
         Random random = new Random();
-        List<Integer> combinaisonSecrete = new ArrayList<>();//Integer la version objet  de int creer une liste
+        List<Integer> combinaisonSecrete = new ArrayList<>();
         for (int j = 0; j <= 3; j++) {
             int nbr = random.nextInt(10);
-            combinaisonSecrete.add(nbr);// ajout de la liste crée
+            combinaisonSecrete.add(nbr);
         }
         return combinaisonSecrete;
 
